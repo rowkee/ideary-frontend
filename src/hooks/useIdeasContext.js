@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { IdeasContext } from "../context/IdeasContext";
+import { IdeasContext } from "../context/IdeasContext.js";
 
 export const useIdeasContext = () => {
   const context = useContext(IdeasContext);
