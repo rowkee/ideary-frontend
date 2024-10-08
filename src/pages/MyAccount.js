@@ -13,11 +13,14 @@ function MyAccount() {
 
   useEffect(() => {
     const fetchIdeas = async () => {
-      const response = await fetch("http://localhost:4000/api/ideas/account", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/api/ideas/account`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       const json = await response.json();
 
       if (response.ok) {

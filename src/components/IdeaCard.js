@@ -13,7 +13,7 @@ function IdeaCard({ idea }) {
     }
 
     const response = await fetch(
-      `http://localhost:4000/api/ideas/${idea._id}`,
+      `${process.env.REACT_APP_API_BASE_URL}/api/ideas/${idea._id}`,
       {
         method: "DELETE",
         headers: {
