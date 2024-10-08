@@ -1,15 +1,24 @@
 import React, { useCallback } from "react";
 import { useIdeasContext } from "../hooks/useIdeasContext";
 import { formatDistanceToNow } from "date-fns";
+import useAuthContext from "../hooks/useAuthContext";
 
 function IdeaCard({ idea }) {
   const { dispatch } = useIdeasContext();
+  const { user } = useAuthContext();
 
   const handleDelete = useCallback(async () => {
+    if (!user) {
+      return;
+    }
+
     const response = await fetch(
       `http://localhost:4000/api/ideas/${idea._id}`,
       {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       }
     );
     const json = await response.json();
@@ -17,7 +26,7 @@ function IdeaCard({ idea }) {
     if (response.ok) {
       dispatch({ type: "DELETE_IDEA", payload: json });
     }
-  }, [dispatch, idea._id]);
+  }, [dispatch, idea._id, user]);
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg border-2 border-black m-2">

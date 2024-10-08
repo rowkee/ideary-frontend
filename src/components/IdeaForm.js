@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useIdeasContext } from "../hooks/useIdeasContext";
+import useAuthContext from "../hooks/useAuthContext";
 
 function IdeaForm() {
   const [title, setTitle] = useState("");
@@ -9,9 +10,15 @@ function IdeaForm() {
   const [error, setError] = useState(null);
   const { dispatch } = useIdeasContext();
   const [emptyFields, setEmptyFields] = useState([]);
+  const { user } = useAuthContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!user) {
+      setError("You must be logged in.");
+      return;
+    }
 
     const idea = { title, description, author };
 
@@ -20,6 +27,7 @@ function IdeaForm() {
       body: JSON.stringify(idea),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
     });
 

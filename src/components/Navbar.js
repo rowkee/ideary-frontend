@@ -21,7 +21,9 @@ function Navbar() {
           {user && (
             <div>
               <button onClick={handleClick}>Logout</button>
-              <span>{user.email}</span>
+              <Link to="/account">
+                <span>{user.email}</span>
+              </Link>
             </div>
           )}
           {!user && (
