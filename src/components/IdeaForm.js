@@ -23,7 +23,7 @@ function IdeaForm() {
     const idea = { title, description, author };
 
     const response = await fetch(
-      `${process.env.REACT_APP_API_BASE_URL}/api/ideas`,
+      `${process.env.REACT_APP_API_BASE_URL}api/ideas`,
       {
         method: "POST",
         body: JSON.stringify(idea),
