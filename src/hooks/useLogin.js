@@ -11,7 +11,7 @@ export const useLogin = (email, password) => {
     setIsLoading(true);
 
     const response = await fetch(
-      `${process.env.REACT_APP_API_BASE_URL}/api/user/login`,
+      `${process.env.REACT_APP_API_BASE_URL}api/user/login`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

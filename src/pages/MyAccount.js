@@ -14,7 +14,7 @@ function MyAccount() {
   useEffect(() => {
     const fetchIdeas = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_BASE_URL}/api/ideas/account`,
+        `${process.env.REACT_APP_API_BASE_URL}api/ideas/account`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
