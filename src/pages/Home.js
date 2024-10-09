@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     const fetchIdeas = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_BASE_URL}/api/ideas`
+        `${process.env.REACT_APP_API_BASE_URL}api/ideas`
       );
       const json = await response.json();
 
