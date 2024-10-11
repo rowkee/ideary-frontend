@@ -6,7 +6,6 @@ import useAuthContext from "../hooks/useAuthContext";
 function IdeaForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [author, setAuthor] = useState("");
   const [error, setError] = useState(null);
   const { dispatch } = useIdeasContext();
   const [emptyFields, setEmptyFields] = useState([]);
@@ -20,7 +19,7 @@ function IdeaForm() {
       return;
     }
 
-    const idea = { title, description, author };
+    const idea = { title, description, createdBy: user.id };
 
     const response = await fetch(
       `${process.env.REACT_APP_API_BASE_URL}api/ideas`,
@@ -46,7 +45,6 @@ function IdeaForm() {
       setError(null);
       setTitle("");
       setDescription("");
-      setAuthor("");
       setEmptyFields([]);
       dispatch({ type: "CREATE_IDEA", payload: json });
     }
@@ -73,17 +71,6 @@ function IdeaForm() {
         value={description}
         className={
           emptyFields.includes("description")
-            ? "mt-1 text-sm leading-6 text-gray-600 border-2 border-rose-600/50"
-            : "mt-1 text-sm leading-6 "
-        }
-      />
-      <label>Idea Author:</label>
-      <input
-        type="text"
-        onChange={(e) => setAuthor(e.target.value)}
-        value={author}
-        className={
-          emptyFields.includes("author")
             ? "mt-1 text-sm leading-6 text-gray-600 border-2 border-rose-600/50"
             : "mt-1 text-sm leading-6 "
         }

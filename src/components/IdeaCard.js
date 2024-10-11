@@ -6,7 +6,7 @@ import useAuthContext from "../hooks/useAuthContext";
 function IdeaCard({ idea }) {
   const { dispatch } = useIdeasContext();
   const { user } = useAuthContext();
-  console.log(user);
+
   const handleDelete = useCallback(async () => {
     if (!user) {
       return;
@@ -39,11 +39,7 @@ function IdeaCard({ idea }) {
           {formatDistanceToNow(new Date(idea.createdAt), { addSuffix: true })}
         </p>
       </div>
-      <div className="px-6 pt-4 pb-2">
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          {idea.author}
-        </span>
-      </div>
+
       <div className="px-6 pt-4 pb-2">
         <button
           type="button"
