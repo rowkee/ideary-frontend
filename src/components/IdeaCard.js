@@ -6,7 +6,7 @@ import useAuthContext from "../hooks/useAuthContext";
 function IdeaCard({ idea }) {
   const { dispatch } = useIdeasContext();
   const { user } = useAuthContext();
-
+  console.log(user);
   const handleDelete = useCallback(async () => {
     if (!user) {
       return;
@@ -18,6 +18,8 @@ function IdeaCard({ idea }) {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${user.token}`,
+          "Content-Type": "application/json",
+          "X-User-ID": user.id,
         },
       }
     );
