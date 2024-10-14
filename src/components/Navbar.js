@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useLogout from "../hooks/useLogout.js";
 import useAuthContext from "../hooks/useAuthContext.js";
+import IdeaForm from "../components/IdeaForm";
 
 function Navbar() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
+  const [modalVisible, setModalVisible] = useState(false);
 
-  const handleClick = () => {
+  const handleLogoutClick = () => {
     logout();
+  };
+
+  const handleNewIdeaClick = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
   };
 
   return (
@@ -20,16 +30,38 @@ function Navbar() {
         <nav>
           {user && (
             <div>
-              <button onClick={handleClick}>Logout</button>
               <Link to="/account">
-                <span>{user.email}</span>
+                <span className="font-bold">{user.email}</span>
               </Link>
+              <button
+                className="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-5"
+                onClick={handleLogoutClick}
+              >
+                Logout
+              </button>
+              <button
+                className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-5"
+                onClick={handleNewIdeaClick}
+              >
+                + New Idea
+              </button>
+              <IdeaForm isVisible={modalVisible} onClose={handleCloseModal} />
             </div>
           )}
           {!user && (
             <div>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <Link
+                className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-5"
+                to="/signup"
+              >
+                Signup
+              </Link>
+              <Link
+                className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-5"
+                to="/login"
+              >
+                Login
+              </Link>
             </div>
           )}
         </nav>
