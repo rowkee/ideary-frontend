@@ -3,7 +3,7 @@ import { useIdeasContext } from "../hooks/useIdeasContext";
 import { formatDistanceToNow } from "date-fns";
 import useAuthContext from "../hooks/useAuthContext";
 
-function IdeaCard({ idea }) {
+function IdeaCard({ idea, showDeleteButton }) {
   const { dispatch } = useIdeasContext();
   const { user } = useAuthContext();
 
@@ -41,13 +41,15 @@ function IdeaCard({ idea }) {
       </div>
 
       <div className="px-6 pt-4 pb-2">
-        <button
-          type="button"
-          className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 material-symbols-outlined"
-          onClick={handleDelete}
-        >
-          Delete
-        </button>
+        {showDeleteButton && (
+          <button
+            type="button"
+            className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 material-symbols-outlined"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+        )}
       </div>
     </div>
   );
