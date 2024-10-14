@@ -4,7 +4,6 @@ import { useIdeasContext } from "../hooks/useIdeasContext";
 
 // components
 import IdeaCard from "../components/IdeaCard";
-import IdeaForm from "../components/IdeaForm";
 
 function Home() {
   const { ideas, dispatch } = useIdeasContext();
@@ -29,7 +28,6 @@ function Home() {
       <div className="ideas">
         {ideas && ideas.map((idea) => <IdeaCard key={idea._id} idea={idea} />)}
       </div>
-      <IdeaForm />
     </div>
   );
 }
