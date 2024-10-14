@@ -34,13 +34,13 @@ function Navbar() {
                 <span className="font-bold">{user.email}</span>
               </Link>
               <button
-                className="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-5"
+                className="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-3"
                 onClick={handleLogoutClick}
               >
                 Logout
               </button>
               <button
-                className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-5"
+                className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-3"
                 onClick={handleNewIdeaClick}
               >
                 + New Idea
@@ -51,13 +51,13 @@ function Navbar() {
           {!user && (
             <div>
               <Link
-                className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-5"
+                className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-3"
                 to="/signup"
               >
                 Signup
               </Link>
               <Link
-                className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-5"
+                className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-3"
                 to="/login"
               >
                 Login

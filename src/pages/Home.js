@@ -14,7 +14,6 @@ function Home() {
         `${process.env.REACT_APP_API_BASE_URL}api/ideas`
       );
       const json = await response.json();
-
       if (response.ok) {
         dispatch({ type: "SET_IDEAS", payload: json });
       }
@@ -25,7 +24,7 @@ function Home() {
   return (
     <div>
       <h1 className="text-4xl font-bold">Home</h1>
-      <div className="ideas">
+      <div className="flex flex-auto flex-wrap">
         {ideas &&
           ideas.map((idea) => (
             <IdeaCard key={idea._id} idea={idea} showDeleteButton={false} />
