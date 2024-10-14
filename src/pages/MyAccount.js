@@ -5,11 +5,12 @@ import useAuthContext from "../hooks/useAuthContext";
 
 // components
 import IdeaCard from "../components/IdeaCard";
-import IdeaForm from "../components/IdeaForm";
 
 function MyAccount() {
   const { ideas, dispatch } = useIdeasContext();
   const { user } = useAuthContext();
+
+  // console.log(ideas);
 
   useEffect(() => {
     const fetchIdeas = async () => {
@@ -22,7 +23,7 @@ function MyAccount() {
         }
       );
       const json = await response.json();
-
+      console.log(json);
       if (response.ok) {
         dispatch({ type: "SET_IDEAS", payload: json });
       }
@@ -36,9 +37,11 @@ function MyAccount() {
     <div>
       <h1 className="text-4xl font-bold">My Posts</h1>
       <div className="ideas">
-        {ideas && ideas.map((idea) => <IdeaCard key={idea._id} idea={idea} />)}
+        {ideas &&
+          ideas.map((idea) => (
+            <IdeaCard key={idea._id} idea={idea} showDeleteButton={true} />
+          ))}
       </div>
-      <IdeaForm />
     </div>
   );
 }

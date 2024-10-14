@@ -26,7 +26,10 @@ function Home() {
     <div>
       <h1 className="text-4xl font-bold">Home</h1>
       <div className="ideas">
-        {ideas && ideas.map((idea) => <IdeaCard key={idea._id} idea={idea} />)}
+        {ideas &&
+          ideas.map((idea) => (
+            <IdeaCard key={idea._id} idea={idea} showDeleteButton={false} />
+          ))}
       </div>
     </div>
   );
