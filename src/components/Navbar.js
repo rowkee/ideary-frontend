@@ -20,16 +20,21 @@ function Navbar() {
         <nav>
           {user && (
             <div>
-              <button onClick={handleClick}>Logout</button>
               <Link to="/account">
-                <span>{user.email}</span>
+                <span className="font-bold">{user.email}</span>
               </Link>
+              <button
+                className="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-5"
+                onClick={handleClick}
+              >
+                Logout
+              </button>
             </div>
           )}
           {!user && (
             <div>
-              <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              <Link to="/login">Login</Link>
             </div>
           )}
         </nav>
