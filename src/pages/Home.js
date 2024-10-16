@@ -2,9 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useIdeasContext } from "../hooks/useIdeasContext";
 
-// components
-import IdeaCard from "../components/IdeaCard";
-
 function Home() {
   const { ideas, dispatch } = useIdeasContext();
 
@@ -23,13 +20,7 @@ function Home() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold">Home</h1>
-      <div className="flex flex-auto flex-wrap">
-        {ideas &&
-          ideas.map((idea) => (
-            <IdeaCard key={idea._id} idea={idea} showDeleteButton={false} />
-          ))}
-      </div>
+      <h1 className="text-4xl font-bold">Homepage</h1>
     </div>
   );
 }
