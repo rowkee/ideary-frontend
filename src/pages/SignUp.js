@@ -17,9 +17,8 @@ const Signup = () => {
 
   return (
     <>
-      <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 my-3">
           First Name
           <input
             type="text"
@@ -31,7 +30,7 @@ const Signup = () => {
             placeholder="Freddy"
           ></input>
         </label>
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 my-3">
           Last Name:
           <input
             type="text"
@@ -44,7 +43,7 @@ const Signup = () => {
           ></input>
         </label>
 
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 my-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -64,7 +63,7 @@ const Signup = () => {
           />
         </label>
 
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 my-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -85,7 +84,7 @@ const Signup = () => {
           />
         </label>
 
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 my-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -107,7 +106,7 @@ const Signup = () => {
             value={password}
           />
         </label>
-        <button disabled={isLoading} className="btn">
+        <button disabled={isLoading} className="btn my-3">
           Signup
         </button>
         {error && <div className="error">{error}</div>}
