@@ -2,7 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 import { useIdeasContext } from "../hooks/useIdeasContext";
 
-function Home() {
+// components
+import IdeaCard from "../components/IdeaCard";
+
+function Ideas() {
   const { ideas, dispatch } = useIdeasContext();
 
   useEffect(() => {
@@ -20,9 +23,15 @@ function Home() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold">Homepage</h1>
+      <h1 className="text-4xl font-bold">Ideas</h1>
+      <div className="flex flex-auto flex-wrap">
+        {ideas &&
+          ideas.map((idea) => (
+            <IdeaCard key={idea._id} idea={idea} showDeleteButton={false} />
+          ))}
+      </div>
     </div>
   );
 }
 
-export default Home;
+export default Ideas;

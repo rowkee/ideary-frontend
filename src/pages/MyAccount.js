@@ -10,12 +10,10 @@ function MyAccount() {
   const { ideas, dispatch } = useIdeasContext();
   const { user } = useAuthContext();
 
-  // console.log(ideas);
-
   useEffect(() => {
     const fetchIdeas = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_BASE_URL}api/ideas/account`,
+        `${process.env.REACT_APP_API_BASE_URL}api/ideas/account?userId=${user.id}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
