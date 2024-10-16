@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useIdeasContext } from "../hooks/useIdeasContext";
 import useAuthContext from "../hooks/useAuthContext";
 
-// components
 import IdeaCard from "../components/IdeaCard";
 
 function MyAccount() {
@@ -21,7 +20,6 @@ function MyAccount() {
         }
       );
       const json = await response.json();
-      console.log(json);
       if (response.ok) {
         dispatch({ type: "SET_IDEAS", payload: json });
       }

@@ -14,8 +14,7 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <h2>Log in</h2>
+      <div className="my-3">
         <label className="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +61,7 @@ const Login = () => {
           />
         </label>
       </div>
-      <button className="btn" disabled={isLoading}>
+      <button className="btn my-2" disabled={isLoading}>
         Log in
       </button>
       {error && <div className="error">{error}</div>}
