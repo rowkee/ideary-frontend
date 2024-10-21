@@ -44,9 +44,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div>
-        <Carousel />
-      </div>
+      <Carousel />
     </div>
   );
 }
