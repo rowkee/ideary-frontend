@@ -22,7 +22,13 @@ function Home() {
 
   return (
     <div>
-      <div className="hero bg-base-200 min-h-screen">
+      <div
+        className="hero bg-base-200 min-h-screen"
+        style={{
+          backgroundImage: 'url("/hero.jpg")',
+          backgroundSize: "cover",
+        }}
+      >
         <div className="hero-content text-center">
           <div className="max-w-md">
             <h1 className="text-5xl font-bold">Welcome to the Home of Ideas</h1>
