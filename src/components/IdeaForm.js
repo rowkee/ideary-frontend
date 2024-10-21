@@ -70,35 +70,34 @@ function IdeaForm({ isVisible, onClose }) {
         <DialogPanel className="bg-white rounded-lg max-w-md mx-auto p-6 z-20">
           <DialogTitle
             as="h3"
-            className="text-lg font-medium leading-6 text-gray-900"
+            className="text-lg font-medium leading-6 text-gray-900 mb-4"
           >
-            Create a New Idea
+            Add a New Idea
           </DialogTitle>
           <form onSubmit={handleSubmit}>
             <div>
-              <label>Idea Title:</label>
               <input
                 type="text"
-                onChange={(e) => setTitle(e.target.value)}
-                value={title}
+                placeholder="Idea Title"
                 className={
                   emptyFields.includes("title")
-                    ? "mt-1 text-sm leading-6 text-gray-600 border-2 border-rose-600/50"
-                    : "mt-1 text-sm leading-6 "
+                    ? "input input-bordered w-full max-w-xs border-2 border-rose-600/50 mb-2"
+                    : "input input-bordered w-full max-w-xs mb-2"
                 }
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div>
-              <label>Idea Description:</label>
-              <input
+              <textarea
                 type="text"
-                onChange={(e) => setDescription(e.target.value)}
-                value={description}
+                placeholder="Idea Description"
                 className={
                   emptyFields.includes("description")
-                    ? "mt-1 text-sm leading-6 text-gray-600 border-2 border-rose-600/50"
-                    : "mt-1 text-sm leading-6 "
+                    ? "textarea textarea-bordered border-rose-600/50"
+                    : "textarea textarea-bordered"
                 }
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
               />
             </div>
             <div>

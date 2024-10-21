@@ -23,7 +23,7 @@ function Ideas() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold">Ideas</h1>
+      <h1 className="text-4xl font-bold ml-6">IDEAAAAASSSSSS</h1>
       <div className="flex flex-auto flex-wrap">
         {ideas &&
           ideas.map((idea) => (

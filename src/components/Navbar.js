@@ -32,12 +32,9 @@ function Navbar() {
         {user && (
           <div>
             <Link to="/account">
-              <span className="btn btn-ghost text-xl">{user.email}</span>
+              <span className="btn btn-ghost text-xl">Hello, {user.email}</span>
             </Link>
-            <button
-              className="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-3"
-              onClick={handleLogoutClick}
-            >
+            <button className="btn" onClick={handleLogoutClick}>
               Logout
             </button>
             <button
@@ -51,16 +48,10 @@ function Navbar() {
         )}
         {!user && (
           <div>
-            <Link
-              className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-3"
-              to="/signup"
-            >
+            <Link className="btn mr-2" to="/signup">
               Signup
             </Link>
-            <Link
-              className="bg-transparent hover:bg-green-500 text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded ml-3"
-              to="/login"
-            >
+            <Link className="btn " to="/login">
               Login
             </Link>
           </div>
