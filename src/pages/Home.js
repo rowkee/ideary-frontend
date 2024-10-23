@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useIdeasContext } from "../hooks/useIdeasContext";
 import { Link } from "react-router-dom";
 import Carousel from "../components/Carousel";
-import Footer from "../components/Footer";
 
 function Home() {
   const { ideas, dispatch } = useIdeasContext();
@@ -25,7 +24,7 @@ function Home() {
     <div className="min-h-screen flex flex-col">
       <div className="flex-grow">
         <div
-          className="hero bg-base-200 min-h-screen"
+          className="hero bg-base-200 min-screen"
           style={{
             backgroundImage: 'url("/hero.jpg")',
             backgroundSize: "cover",
