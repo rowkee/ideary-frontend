@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useIdeasContext } from "../hooks/useIdeasContext";
 import { Link } from "react-router-dom";
 import Carousel from "../components/Carousel";
+import Footer from "../components/Footer";
 
 function Home() {
   const { ideas, dispatch } = useIdeasContext();
@@ -21,30 +22,37 @@ function Home() {
   }, [dispatch]);
 
   return (
-    <div>
-      <div
-        className="hero bg-base-200 min-h-screen"
-        style={{
-          backgroundImage: 'url("/hero.jpg")',
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="hero-content text-center">
-          <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Welcome to the Home of Ideas</h1>
-            <div className="py-6">
-              A not-so-great man once said "Great ideas are worth exactly shit"
-              <br></br>
-              <div>......and he was partially right</div>
-              <div className="text-lg">Ideas that are not shared are shit.</div>
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-grow">
+        <div
+          className="hero bg-base-200 min-h-screen"
+          style={{
+            backgroundImage: 'url("/hero.jpg")',
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="hero-content text-center">
+            <div className="max-w-md">
+              <h1 className="text-5xl font-bold">
+                Welcome to the Home of Ideas
+              </h1>
+              <div className="py-6">
+                A not-so-great man once said "Great ideas are worth exactly
+                shit"
+                <br></br>
+                <div>......and he was partially right</div>
+                <div className="text-lg">
+                  Ideas that are not shared are shit.
+                </div>
+              </div>
+              <Link to="/ideas" className="btn btn-primary">
+                See Ideas
+              </Link>
             </div>
-            <Link to="/ideas" className="btn btn-primary">
-              See Ideas
-            </Link>
           </div>
         </div>
+        <Carousel />
       </div>
-      <Carousel />
     </div>
   );
 }
