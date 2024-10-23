@@ -1,11 +1,21 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useIdeasContext } from "../hooks/useIdeasContext";
 import { formatDistanceToNow } from "date-fns";
 import useAuthContext from "../hooks/useAuthContext";
+import IdeaModal from "./IdeaModal";
 
 function IdeaCard({ idea, showDeleteButton }) {
   const { dispatch } = useIdeasContext();
   const { user } = useAuthContext();
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const handleDelete = useCallback(async () => {
     if (!user) {
@@ -31,7 +41,10 @@ function IdeaCard({ idea, showDeleteButton }) {
   }, [dispatch, idea._id, user]);
 
   return (
-    <div className="card bg-base-100 w-96 shadow-xl m-2">
+    <div
+      onClick={handleOpenModal}
+      className="card bg-base-100 w-96 shadow-xl m-2"
+    >
       <div className="card-body">
         <h2 className="card-title">{idea.title}</h2>
         <p>{idea.description}</p>
@@ -44,10 +57,17 @@ function IdeaCard({ idea, showDeleteButton }) {
             <button
               type="button"
               className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 material-symbols-outlined"
-              onClick={handleDelete}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDelete();
+              }}
             >
               Delete
             </button>
+          )}
+
+          {showModal && (
+            <IdeaModal ideaData={idea} onClose={handleCloseModal} />
           )}
         </div>
       </div>
