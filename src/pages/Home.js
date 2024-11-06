@@ -36,20 +36,18 @@ function Home() {
                 Welcome to the Home of Ideas
               </h1>
               <div className="py-6">
-                A not-so-great man once said "Great ideas are worth exactly
-                shit"
-                <br></br>
-                <div>......and he was partially right</div>
+                "Great ideas are worth exactly shit"
                 <div className="text-lg">
-                  Ideas that are not shared are shit.
+                  Unless you share and build together.
                 </div>
               </div>
               <Link to="/ideas" className="btn btn-primary">
-                See Ideas
+                Find a great idea
               </Link>
             </div>
           </div>
         </div>
+        <h1 className="text-2xl font-bold ml-8">Latest Ideas</h1>
         <Carousel />
       </div>
     </div>

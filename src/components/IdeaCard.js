@@ -43,7 +43,7 @@ function IdeaCard({ idea, showDeleteButton }) {
   return (
     <div
       onClick={handleOpenModal}
-      className="card bg-base-100 w-96 shadow-xl m-2"
+      className="card bg-base-100 w-96 shadow-xl m-2 hover:cursor-pointer"
     >
       <div className="card-body">
         <h2 className="card-title">{idea.title}</h2>

@@ -6,17 +6,20 @@ import {
 } from "react-router-dom";
 import useAuthContext from "./hooks/useAuthContext";
 import Home from "./pages/Home";
+import AboutUs from "./pages/AboutUs";
 import Ideas from "./pages/Ideas";
 import Login from "./pages/Login";
 import Signup from "./pages/SignUp";
 import MyAccount from "./pages/MyAccount";
+import Support from "./pages/Support";
+import ContactUs from "./pages/ContactUs";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 function App() {
   const { user } = useAuthContext();
   return (
-    <div className="App">
+    <div className="App mx-4">
       <Router>
         <Navbar />
         <div className="pages">
@@ -25,6 +28,7 @@ function App() {
               path="/"
               element={user ? <Navigate to="/ideas" /> : <Home />}
             />
+            <Route path="/about" element={<AboutUs />} />
             <Route path="/ideas" element={<Ideas />} />
             <Route
               path="/login"
@@ -38,6 +42,8 @@ function App() {
               path="/account"
               element={!user ? <Navigate to="/login" /> : <MyAccount />}
             />
+            <Route path="/support" element={<Support />} />
+            <Route path="/contact" element={<ContactUs />} />
           </Routes>
         </div>
         <Footer />

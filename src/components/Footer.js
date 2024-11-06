@@ -7,23 +7,25 @@ function Footer() {
       <div className="flex flex-row justify-between text-center mx-auto">
         <nav className="flex flex-col">
           <h6 className="footer-title">Products</h6>
-          <Link className="link link-hover">Ideas</Link>
+          <Link to="/ideas" className="link link-hover">
+            Ideas
+          </Link>
         </nav>
         <nav className="flex flex-col">
           <h6 className="footer-title">Company</h6>
-          <Link to="" className="link link-hover">
+          <Link to="/about" className="link link-hover">
             About us
           </Link>
-          <Link to="" className="link link-hover">
+          <Link to="/contact" className="link link-hover">
             Contact
           </Link>
         </nav>
         <nav className="flex flex-col">
           <h6 className="footer-title">Support</h6>
-          <Link to="" className="link link-hover">
-            Contact Support
+          <Link to="/contact" className="link link-hover">
+            Support
           </Link>
-          <Link to="" className="link link-hover">
+          <Link to="/faq" className="link link-hover">
             FAQ
           </Link>
         </nav>

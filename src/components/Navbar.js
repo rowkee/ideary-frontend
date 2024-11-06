@@ -22,9 +22,9 @@ function Navbar() {
   };
 
   return (
-    <div className="navbar">
+    <div className="navbar my-4">
       <div className="flex-1">
-        <Link className="btn btn-ghost text-xl" to="/">
+        <Link className="btn btn-ghost text-xl p-1" to="/">
           <h1 className="text-4xl font-bold">Ideary</h1>
         </Link>
       </div>
