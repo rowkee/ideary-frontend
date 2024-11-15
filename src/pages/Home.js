@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useIdeasContext } from "../hooks/useIdeasContext";
 import { Link } from "react-router-dom";
 import Carousel from "../components/Carousel";
+import Footer from "../components/Footer";
 
 function Home() {
   const { ideas, dispatch } = useIdeasContext();
@@ -50,6 +51,7 @@ function Home() {
         <h1 className="text-2xl font-bold ml-8">Latest Ideas</h1>
         <Carousel />
       </div>
+      <Footer />
     </div>
   );
 }

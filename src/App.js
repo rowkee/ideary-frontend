@@ -14,7 +14,6 @@ import MyAccount from "./pages/MyAccount";
 import Support from "./pages/Support";
 import ContactUs from "./pages/ContactUs";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 function App() {
   const { user } = useAuthContext();
@@ -46,7 +45,6 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
           </Routes>
         </div>
-        <Footer />
       </Router>
     </div>
   );
