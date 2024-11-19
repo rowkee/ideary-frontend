@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-
+import Comments from "./Comments";
 function IdeaModal({ ideaData, onClose }) {
   const modalRef = useRef(null);
 
@@ -21,6 +21,7 @@ function IdeaModal({ ideaData, onClose }) {
       <div className="modal-box">
         <h3 className="font-bold text-lg">{ideaData.title}</h3>
         <p className="py-4">{ideaData.description}</p>
+        <Comments ideaId={ideaData._id} />
         <button onClick={handleClose} className="btn">
           Close
         </button>
