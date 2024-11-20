@@ -24,7 +24,7 @@ function Ideas() {
   return (
     <div>
       <h1 className="text-4xl font-bold ml-6">IDEAAAAASSSSSS</h1>
-      <div className="flex flex-auto flex-wrap">
+      <div className="flex flex-auto flex-wrap justify-center">
         {ideas &&
           ideas.map((idea) => (
             <IdeaCard key={idea._id} idea={idea} showDeleteButton={false} />
