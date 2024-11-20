@@ -29,13 +29,13 @@ const Comment = ({ comment, onEdit, onDelete }) => {
         <div>
           <p>{comment.content}</p>
           <div className="comment-meta">
-            <span>By {comment.username}</span>
+            <span>By {comment.username || "Unknown User"}</span>
             <span className="text-sm">
               {formatDistanceToNow(new Date(comment.createdAt), {
                 addSuffix: true,
               })}
             </span>
-            {user && user._id === comment.userId && (
+            {user && user._id === comment.authorId && (
               <div className="comment-actions flex justify-end">
                 <button
                   className="btn m-1"

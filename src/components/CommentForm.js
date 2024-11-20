@@ -14,29 +14,34 @@ const CommentForm = ({ ideaId, onCommentAdd }) => {
       return;
     }
 
-    const response = await fetch(
-      `${process.env.REACT_APP_API_BASE_URL}api/comments`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify({
-          content: newComment,
-          ideaId: ideaId,
-          author: user.id,
-        }),
-      }
-    );
-    const json = await response.json();
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}api/comments`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify({
+            content: newComment,
+            ideaId: ideaId,
+            authorId: user._id,
+            username: user.username,
+          }),
+        }
+      );
+      const json = await response.json();
 
-    if (response.ok) {
-      setNewComment("");
-      onCommentAdd(json);
-      setError(null);
-    } else {
-      setError(json.error);
+      if (response.ok) {
+        setNewComment("");
+        onCommentAdd(json);
+        setError(null);
+      } else {
+        setError(json.error);
+      }
+    } catch (error) {
+      setError("Failed to post comment: " + error.message);
     }
   };
 

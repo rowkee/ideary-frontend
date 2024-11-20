@@ -1,46 +1,45 @@
 import { useState } from "react";
 import useAuthContext from "./useAuthContext.js";
 
-export const useSignup = (email, password, firstName, lastName, username) => {
+export const useSignup = () => {
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
 
-  const signup = async (email, password, firstName, lastName, username) => {
-    setError(null);
+  const signup = async (email, password, username) => {
     setIsLoading(true);
+    setError(null);
 
-    const response = await fetch(
-      `${process.env.REACT_APP_API_BASE_URL}api/user/signup`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          password,
-          firstName,
-          lastName,
-          username,
-        }),
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}api/user/signup`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password, username }),
+        }
+      );
+
+      const json = await response.json();
+
+      if (!response.ok) {
+        setIsLoading(false);
+        setError(json.error);
+        return;
       }
-    );
 
-    const json = await response.json();
-
-    if (!response.ok) {
-      setIsLoading(false);
-      setError(json.error);
-    }
-
-    if (response.ok) {
-      // save user details to local storage
+      // Save to localStorage
       localStorage.setItem("user", JSON.stringify(json));
 
-      //update auth context
+      // Update auth context
       dispatch({ type: "LOGIN", payload: json });
 
       setIsLoading(false);
+    } catch (err) {
+      setError("An error occurred during signup");
+      setIsLoading(false);
     }
   };
+
   return { signup, isLoading, error };
 };
