@@ -54,8 +54,11 @@ const CommentForm = ({ ideaId, onCommentAdd }) => {
         required
         className="textarea textarea-bordered w-full"
       />
-      <button className="btn mb-1" type="submit">
-        Post Comment
+      <button
+        className="btn mb-1 bg-blue-500 hover:bg-blue-400 text-white"
+        type="submit"
+      >
+        Comment
       </button>
       {error && <div className="error">{error}</div>}
     </form>

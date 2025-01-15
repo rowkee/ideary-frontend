@@ -13,7 +13,7 @@ const Comment = ({ comment, onEdit, onDelete }) => {
   };
 
   return (
-    <div className="outline my-2">
+    <div className="my-2 rounded-lg bg-gray-200">
       {editingMode ? (
         <div>
           <textarea
@@ -27,14 +27,18 @@ const Comment = ({ comment, onEdit, onDelete }) => {
         </div>
       ) : (
         <div>
-          <p>{comment.content}</p>
-          <div className="comment-meta">
-            <span>By {comment.username || "Unknown User"}</span>
-            <span className="text-sm">
-              {formatDistanceToNow(new Date(comment.createdAt), {
-                addSuffix: true,
-              })}
-            </span>
+          <div className="comment-meta p-2">
+            <div className="flex justify-between">
+              <span className="font-bold">
+                {comment.username || "Unknown User"}
+              </span>
+              <span className="text-sm">
+                {formatDistanceToNow(new Date(comment.createdAt), {
+                  addSuffix: true,
+                })}
+              </span>
+            </div>
+            <p>{comment.content}</p>
             {user && user._id === comment.authorId && (
               <div className="comment-actions flex justify-end">
                 <button

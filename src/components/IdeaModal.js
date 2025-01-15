@@ -19,12 +19,17 @@ function IdeaModal({ ideaData, onClose }) {
   return (
     <dialog ref={modalRef} className="modal" onClose={onClose}>
       <div className="modal-box">
-        <h3 className="font-bold text-lg">{ideaData.title}</h3>
+        <div className="flex justify-between">
+          <h3 className="font-bold text-lg align-middle">{ideaData.title}</h3>
+          <button
+            onClick={handleClose}
+            className="align-middle text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-full text-sm w-8 h-8"
+          >
+            X
+          </button>
+        </div>
         <p className="py-4">{ideaData.description}</p>
         <Comments ideaId={ideaData._id} />
-        <button onClick={handleClose} className="btn">
-          Close
-        </button>
       </div>
     </dialog>
   );
